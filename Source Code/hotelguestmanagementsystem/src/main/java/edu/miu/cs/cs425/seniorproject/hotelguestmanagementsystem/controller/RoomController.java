@@ -32,6 +32,14 @@ public class RoomController {
         model.addAttribute(room);
         return "room";
     }
+    @RequestMapping("/roomList")
+    public String getRoomList(Model model) {
+        List<Room> rooms = roomService.getAllRooms();
+        model.addAttribute("registeredRooms",rooms);
+
+
+        return "roomlist";
+    }
 
     @PostMapping("/checkRooms")
     public String searchRooms(@ModelAttribute("reservationDto") ReservationDto reservationDto, Model model){
