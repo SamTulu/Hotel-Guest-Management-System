@@ -39,6 +39,13 @@ public class RoomTypeController {
         model.addAttribute(roomType);
         return "roomType";
     }
+    @GetMapping("/roomTypeList")
+    public String getRoomTypeList(Model model){
+        List<RoomType> roomTypes = roomTypeService.getAllRoomTypes();
+        model.addAttribute("registeredRoomTypes",roomTypes);
+
+        return "roomtypelist";
+    }
 
     @PostMapping
     public String addRoomType(@ModelAttribute("roomType") @Valid RoomType roomType, Model model){

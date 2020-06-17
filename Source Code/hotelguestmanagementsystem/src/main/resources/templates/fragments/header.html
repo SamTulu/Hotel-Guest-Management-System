@@ -26,6 +26,25 @@
 										<li><a href="/accommodation">Accommodation</a></li>
 										<li><a href="/contactUs">ContactUs</a></li>
 										<li><a href="/reservation">Reservation</a></li>
+										<li class="nav-item dropdown">
+											<a sec:authorize="hasRole('ADMIN')" class="nav-link dropdown-toggle" href="/room" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+												Rooms
+											</a>
+											<ul class="dropdown-menu multi-level" role="menu" aria-labelledby="dropdownMenu">
+												<li sec:authorize="hasAuthority('ADMIN')" class="dropdown-item"><a href="/room">add Room</a></li>
+												<li class="dropdown-item"><a href="/roomList">view Rooms</a></li>
+												<li class="dropdown-divider"></li>
+												<li class="dropdown-submenu">
+													<a  class="dropdown-item" tabindex="-1" href="">room types</a>
+													<ul class="dropdown-menu">
+														<li class="dropdown-item"><a tabindex="-1" href="/roomType">add room type</a></li>
+
+														<li class="dropdown-item"><a href="/roomType/roomTypeList">view room types</a></li>
+
+													</ul>
+												</li>
+											</ul>
+										</li>
 										<li> <a sec:authorize="isAuthenticated()" th:href="@{/logout}">Sign Out</a></li>
 
 

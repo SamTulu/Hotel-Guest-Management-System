@@ -12,7 +12,6 @@ public  class Util {
         room.setRoomStatus(Status.RESERVED);
         room.setReservation(res);
 
-
     };
 
 }
