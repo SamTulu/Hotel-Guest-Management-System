@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/head :: head">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+<!-- this is replaced with thymeleaf include -->
+<header class="header_area" style="background-color: white;" th:replace="fragments/header :: header"></header>
+
+<div class="container" style="background-color: white; padding: 0;">
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th scope="col">ROOM ID</th>
+            <th scope="col">ROOM NUMBER</th>
+            <th scope="col">ROOM STATUS</th>
+            <th scope="col">ROOM TYPE</th>
+            <th scope="col">&nbsp;</th>
+            <th scope="col">&nbsp;</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="room: ${registeredRooms}">
+            <td th:text="${room.roomId}"></td>
+            <td th:text="${room.roomNumber}"></td>
+            <td th:text="${room.roomStatus}"></td>
+            <td th:text="${room.roomType.type}"></td>
+
+            <td><a th:href="@{/room/edit/{id}(id=${room.roomId})}">Edit</a></td>
+            <td><a th:href="@{/room/delete/{id}(id=${room.roomId})}">Delete</a></td>
+        </tr>
+        </tbody>
+    </table>
+
+</div>
+
+<!-- this is replaced with thymeleaf include -->
+<footer class="footer_area" th:replace="fragments/footer :: footer"></footer>
+
+
+​​
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="https://maps.googleapis.com/maps/api/js"></script>
+<script src="js/bootstrap.min.js"></script>
+</body>
